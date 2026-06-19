@@ -15,6 +15,13 @@ jobs:
           node-version: '18'
       - name: Install deps
         run: npm ci --legacy-peer-deps
+      - name: Diagnostics
+        run: |
+          node -v
+          npm -v
+          pwd
+          ls -la
+          npm list --depth=0 || true
       - name: Build
         run: npm run build
       - name: Deploy to GitHub Pages
