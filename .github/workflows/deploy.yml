@@ -23,7 +23,12 @@ jobs:
           ls -la
           npm list --depth=0 || true
       - name: Build
-        run: npm run build
+        run: bash -lc "npm run build 2>&1 | tee build-output.log; exit ${PIPESTATUS[0]}"
+      - name: Upload build log
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build-output.log
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
