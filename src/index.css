@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+:root{
+  --bg: #f9fafb;
+  --surface: #ffffff;
+  --text: #0f172a;
+}
+
+.dark{
+  --bg: #0b1220;
+  --surface: #0b1220;
+  --text: #e6eef8;
+}
+
+body{
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Simple dark-mode support via .dark class on html */
+
+/* Skip link styles */
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{position:static;width:auto;height:auto;left:0}
+
+/* Focus styles for keyboard navigation */
+:focus{outline: none}
+:focus-visible{outline: 3px solid rgba(37,99,235,0.6);outline-offset:2px}
+
+/* Polished board styles */
+.grid-cols-3 > div{background:transparent}
+.min-h-[200px]{background:rgba(255,255,255,0.02)}
+.cursor-grab:active{cursor:grabbing}
+
+.text-primary{color:var(--primary, #2563eb)}
+.bg-primary{background:var(--primary, #2563eb)}
+
